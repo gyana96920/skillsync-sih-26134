@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SkillSync | Labour Market Intelligence</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#718096;--line:#e7ebf2;--blue:#2563eb;--blue2:#dbeafe;--green:#16a34a;--amber:#d97706;--red:#dc2626;--sidebar:#101827}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,select{font:inherit}.app{display:flex;min-height:100vh}.side{width:245px;background:var(--sidebar);color:#dbe4f0;padding:22px 15px;position:fixed;inset:0 auto 0 0}.brand{font-size:23px;font-weight:800;padding:4px 12px 25px}.brand span{display:block;font-size:11px;font-weight:500;color:#8ea0b8;margin-top:5px}.nav-title{font-size:10px;color:#72819a;text-transform:uppercase;letter-spacing:.12em;margin:25px 12px 8px}.nav button{width:100%;border:0;background:transparent;color:#aebbd0;text-align:left;padding:11px 12px;border-radius:9px;cursor:pointer;margin:2px 0}.nav button:hover,.nav button.active{background:#1e3150;color:#fff}.side-foot{position:absolute;bottom:20px;left:15px;right:15px;border-top:1px solid #263247;padding:15px 12px;font-size:11px;color:#8493a8}.main{margin-left:245px;padding:28px;max-width:1600px;width:calc(100% - 245px)}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}.eyebrow{font-size:11px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.top h1{margin:4px 0;font-size:28px}.top p{margin:0;color:var(--muted);font-size:13px}.actions{display:flex;gap:8px}.select,.btn{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px;cursor:pointer}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.view{display:none}.view.active{display:block}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.kpi,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 3px 12px rgba(20,35,60,.035)}.kpi-label{font-size:12px;color:var(--muted)}.kpi-num{font-size:27px;font-weight:800;margin:8px 0}.trend{font-size:11px;color:var(--green)}.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:15px;margin-top:15px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px}.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.card h2{font-size:15px;margin:0}.small{font-size:11px;color:var(--muted)}canvas{width:100%;height:260px}.skill{margin:16px 0}.skill-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:7px}.bar{height:9px;background:#edf1f6;border-radius:20px;overflow:hidden}.fill{height:100%;background:var(--blue);border-radius:20px}.fill.green{background:var(--green)}.fill.amber{background:var(--amber)}.alert{background:#eff6ff;border-left:4px solid var(--blue);padding:13px;border-radius:8px;font-size:12px;line-height:1.55}.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-size:10px;font-weight:700}.badge.red{background:#fee2e2;color:#b91c1c}.badge.amber{background:#fef3c7;color:#92400e}.badge.green{background:#dcfce7;color:#166534}.badge.blue{background:#dbeafe;color:#1d4ed8}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600;background:#fafbfc}.hero{background:linear-gradient(135deg,#eff6ff,#fff);border:1px solid #dbeafe;padding:20px;border-radius:14px;margin-bottom:15px}.hero h2{margin:0 0 6px;font-size:19px}.hero p{margin:0;color:#64748b;font-size:12px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.chip{background:#fff;border:1px solid #dbeafe;border-radius:20px;padding:6px 10px;font-size:11px}.recommend{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:9px}.recommend b{font-size:12px}.recommend p{font-size:11px;color:var(--muted);margin:5px 0 0}.district{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.district:last-child{border:0}.score{font-weight:800}.search{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;margin-bottom:10px}.footer{margin-top:18px;color:#8994a5;font-size:10px}@media(max-width:950px){.side{width:190px}.main{margin-left:190px;width:calc(100% - 190px)}.kpis{grid-template-columns:1fr 1fr}.grid2,.grid3{grid-template-columns:1fr}}@media(max-width:650px){.side{position:static;width:100%;height:auto}.side-foot{display:none}.app{display:block}.main{margin:0;width:100%;padding:17px}.top{align-items:flex-start;flex-direction:column}.kpis{grid-template-columns:1fr}.actions{width:100%}.select,.btn{flex:1}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">SkillSync<span>Industry Skill Intelligence Platform</span></div>
+  <div class="nav-title">Intelligence</div>
+  <div class="nav">
+    <button class="active" data-view="dashboard">◉ Overview</button>
+    <button data-view="market">↗ Labour Market</button>
+    <button data-view="gaps">△ Skill Gap</button>
+    <button data-view="curriculum">▣ Curriculum Alignment</button>
+  </div>
+  <div class="nav-title">Planning</div>
+  <div class="nav">
+    <button data-view="employers">◆ Employer Validation</button>
+    <button data-view="districts">⌖ District Plans</button>
+  </div>
+  <div class="side-foot">PS 26134 • Prototype<br>Labour-market intelligence for skill development</div>
+</aside>
+
+<main class="main">
+<div class="top">
+  <div><div class="eyebrow">Maharashtra Skill Intelligence</div><h1 id="title">Demand Overview</h1><p id="subtitle">Industry demand → skills → training decisions</p></div>
+  <div class="actions"><select class="select" id="district"><option>All Districts</option><option>Pune</option><option>Mumbai</option><option>Nagpur</option><option>Nashik</option><option>Thane</option></select><button class="btn" onclick="alert('Demo report generated successfully.')">Export</button></div>
+</div>
+
+<section class="view active" id="dashboard">
+<div class="kpis">
+ <div class="kpi"><div class="kpi-label">Open Skill Demand</div><div class="kpi-num">18,420</div><div class="trend">↑ 14.8% this quarter</div></div>
+ <div class="kpi"><div class="kpi-label">Job-Ready Supply</div><div class="kpi-num">12,760</div><div class="trend">↑ 8.2% this quarter</div></div>
+ <div class="kpi"><div class="kpi-label">Curriculum Relevance</div><div class="kpi-num">72%</div><div class="trend">↑ 6.4% after review</div></div>
+ <div class="kpi"><div class="kpi-label">Courses Flagged</div><div class="kpi-num">11</div><div class="trend" style="color:var(--amber)">Needs review</div></div>
+</div>
+<div class="grid2">
+ <div class="card"><div class="card-head"><div><h2>Emerging skill demand</h2><span class="small">Employer requirement trend • 6 months</span></div><select class="select" id="metric"><option>Demand Growth</option><option>Open Vacancies</option></select></div><canvas id="trendChart"></canvas></div>
+ <div class="card"><div class="card-head"><div><h2>Top skill gaps</h2><span class="small">Industry need vs training supply</span></div></div>
+   <div class="skill"><div class="skill-row"><span>SQL</span><b>35%</b></div><div class="bar"><div class="fill" style="width:82%"></div></div></div>
+   <div class="skill"><div class="skill-row"><span>Power BI</span><b>31%</b></div><div class="bar"><div class="fill" style="width:72%"></div></div></div>
+   <div class="skill"><div class="skill-row"><span>Cloud / AWS</span><b>27%</b></div><div class="bar"><div class="fill amber" style="width:63%"></div></div></div>
+   <div class="skill"><div class="skill-row"><span>Python</span><b>22%</b></div><div class="bar"><div class="fill green" style="width:52%"></div></div></div>
+   <div class="alert"><b>Recommended action:</b> strengthen SQL and Power BI modules in Data Analytics programs.</div>
+ </div>
+</div>
+<div class="grid3">
+ <div class="card"><h2>Industry signal</h2><p class="small">Fast-growing requirement</p><h2 style="font-size:24px;margin-top:12px">Data Analytics</h2><span class="badge green">+32% demand</span><div class="chips"><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Python</span></div></div>
+ <div class="card"><h2>Curriculum alert</h2><p class="small">Course requiring review</p><h2 style="font-size:20px;margin-top:12px">Basic Computer Applications</h2><span class="badge red">43% relevance</span></div>
+ <div class="card"><h2>Planning insight</h2><p class="small">District-level action</p><h2 style="font-size:20px;margin-top:12px">Pune</h2><p class="small">Increase Data Analytics capacity and trainers.</p><span class="badge blue">Priority skill</span></div>
+</div>
+</section>
+
+<section class="view" id="market">
+<div class="hero"><h2>Labour Market Intelligence</h2><p>Aggregate employer requirements and job-market signals to identify demand by role, skill and district.</p><div class="chips"><span class="chip">Job postings</span><span class="chip">Employer surveys</span><span class="chip">Industry consultations</span><span class="chip">Emerging technologies</span></div></div>
+<div class="grid2"><div class="card"><div class="card-head"><h2>Demand by skill</h2><select class="select"><option>IT & Digital</option><option>Manufacturing</option><option>Finance</option></select></div><div class="skill"><div class="skill-row"><span>Python</span><b>78%</b></div><div class="bar"><div class="fill" style="width:78%"></div></div></div><div class="skill"><div class="skill-row"><span>SQL</span><b>74%</b></div><div class="bar"><div class="fill" style="width:74%"></div></div></div><div class="skill"><div class="skill-row"><span>Power BI</span><b>68%</b></div><div class="bar"><div class="fill" style="width:68%"></div></div></div><div class="skill"><div class="skill-row"><span>Cloud</span><b>61%</b></div><div class="bar"><div class="fill amber" style="width:61%"></div></div></div></div>
+<div class="card"><h2>Demand signals</h2><div class="recommend"><b>Data Analyst</b><p>High demand • SQL, Python, Power BI</p></div><div class="recommend"><b>Cloud Support Associate</b><p>Growing demand • AWS, Linux, Networking</p></div><div class="recommend"><b>Business Analyst</b><p>Growing demand • Power BI, Excel, SQL</p></div></div></div>
+</section>
+
+<section class="view" id="gaps">
+<div class="hero"><h2>Skill Gap Analysis</h2><p>Compare industry-required skills with the current training supply to identify actionable gaps.</p></div>
+<div class="card"><table><tr><th>Role</th><th>Required Skill</th><th>Industry Need</th><th>Training Supply</th><th>Gap</th><th>Action</th></tr>
+<tr><td>Data Analyst</td><td>SQL</td><td>88%</td><td>53%</td><td><span class="badge red">35%</span></td><td>Strengthen module</td></tr>
+<tr><td>Data Analyst</td><td>Power BI</td><td>81%</td><td>50%</td><td><span class="badge red">31%</span></td><td>Add practical labs</td></tr>
+<tr><td>Cloud Support</td><td>AWS</td><td>76%</td><td>49%</td><td><span class="badge amber">27%</span></td><td>Update curriculum</td></tr>
+<tr><td>Software Developer</td><td>Python</td><td>79%</td><td>57%</td><td><span class="badge amber">22%</span></td><td>Increase hours</td></tr>
+</table></div>
+</section>
+
+<section class="view" id="curriculum">
+<div class="hero"><h2>Curriculum Alignment</h2><p>Translate labour-market evidence into course updates, equipment needs and trainer requirements.</p></div>
+<div class="grid2"><div class="card"><h2>Courses needing review</h2><table><tr><th>Course</th><th>Relevance</th><th>Status</th></tr><tr><td>Basic Computer Applications</td><td>43%</td><td><span class="badge red">Update</span></td></tr><tr><td>Data Analytics</td><td>68%</td><td><span class="badge amber">Review</span></td></tr><tr><td>Cloud Computing</td><td>74%</td><td><span class="badge amber">Review</span></td></tr><tr><td>Full Stack Development</td><td>88%</td><td><span class="badge green">Aligned</span></td></tr></table></div>
+<div class="card"><h2>Recommended updates</h2><div class="recommend"><b>Data Analytics</b><p>Add Advanced SQL + Power BI practical module.</p></div><div class="recommend"><b>Cloud Computing</b><p>Increase AWS lab hours and hands-on projects.</p></div><div class="recommend"><b>Basic Computer Applications</b><p>Review course demand and consider modernizing content.</p></div></div></div>
+</section>
+
+<section class="view" id="employers">
+<div class="hero"><h2>Employer Validation</h2><p>Capture and validate real industry requirements before recommending curriculum changes.</p></div>
+<div class="card"><input class="search" id="employerSearch" placeholder="Search employer requirement..."><table id="employerTable"><tr><th>Sector</th><th>Role</th><th>Top Skill</th><th>Validation</th></tr><tr><td>IT Services</td><td>Data Analyst</td><td>SQL</td><td><span class="badge green">Validated</span></td></tr><tr><td>FinTech</td><td>Software Developer</td><td>Python</td><td><span class="badge green">Validated</span></td></tr><tr><td>Manufacturing</td><td>Cloud Support</td><td>AWS</td><td><span class="badge blue">Pending</span></td></tr><tr><td>Retail</td><td>Business Analyst</td><td>Power BI</td><td><span class="badge green">Validated</span></td></tr></table></div>
+</section>
+
+<section class="view" id="districts">
+<div class="hero"><h2>District Training Plan</h2><p>Convert demand and skill-gap evidence into district-level training priorities.</p></div>
+<div class="grid3"><div class="card"><h2>Pune</h2><p class="small">Priority: Data Analytics</p><div class="score">High demand</div><p class="small">Recommended: +3 batches, 2 trainers, Power BI labs</p></div><div class="card"><h2>Nagpur</h2><p class="small">Priority: Cloud Support</p><div class="score">Growing demand</div><p class="small">Recommended: AWS lab capacity and trainer upskilling</p></div><div class="card"><h2>Nashik</h2><p class="small">Priority: Business Analytics</p><div class="score">Moderate gap</div><p class="small">Recommended: Power BI + SQL module expansion</p></div></div>
+<div class="card" style="margin-top:15px"><h2>Planning logic</h2><div class="chips"><span class="chip">Demand intensity</span><span class="chip">Skill gap</span><span class="chip">Existing training capacity</span><span class="chip">Employer validation</span><span class="chip">Placement signals</span></div></div>
+</section>
+
+<div class="footer">SkillSync • PS 26134 prototype • Demonstration data only</div>
+</main></div>
+<script>
+const titles={dashboard:['Demand Overview','Industry demand → skills → training decisions'],market:['Labour Market','Industry demand by role, skill and district'],gaps:['Skill Gap','Industry requirement vs current training supply'],curriculum:['Curriculum Alignment','Evidence-based course and training recommendations'],employers:['Employer Validation','Validated industry requirements'],districts:['District Plans','District-level training priorities']};
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(b.dataset.view).classList.add('active');document.getElementById('title').textContent=titles[b.dataset.view][0];document.getElementById('subtitle').textContent=titles[b.dataset.view][1]});
+document.getElementById('district').onchange=e=>{document.getElementById('subtitle').textContent=e.target.value+' • '+titles[document.querySelector('.nav button.active').dataset.view][1]};
+document.getElementById('employerSearch').oninput=e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#employerTable tr:not(:first-child)').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none')};
+const c=document.getElementById('trendChart'),ctx=c.getContext('2d');function chart(){const w=c.width=c.clientWidth*2,h=c.height=c.clientHeight*2;ctx.scale(2,2);const W=c.clientWidth,H=c.clientHeight;ctx.clearRect(0,0,W,H);ctx.strokeStyle='#e5eaf1';ctx.lineWidth=1;for(let y=30;y<H-30;y+=45){ctx.beginPath();ctx.moveTo(35,y);ctx.lineTo(W-10,y);ctx.stroke()}const sets=[['Python',[38,45,51,61,70,78],'#2563eb'],['Power BI',[30,36,42,49,58,68],'#16a34a'],['Cloud',[26,31,38,46,54,61],'#d97706']];sets.forEach(s=>{ctx.strokeStyle=s[2];ctx.lineWidth=3;ctx.beginPath();s[1].forEach((v,i)=>{const x=40+i*(W-60)/5,y=H-35-v*(H-75)/100;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()});ctx.fillStyle='#64748b';ctx.font='11px Arial';['Apr','May','Jun','Jul','Aug','Sep'].forEach((m,i)=>ctx.fillText(m,35+i*(W-60)/5,H-12));}window.addEventListener('resize',chart);chart();
+</script>
+</body></html>
